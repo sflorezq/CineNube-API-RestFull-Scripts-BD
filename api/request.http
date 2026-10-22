@@ -1,0 +1,21 @@
+GET http://localhost:3000/api/peliculas HTTP/1.1
+###
+GET http://localhost:3000/api/peliculas/activas HTTP/1.1
+###
+GET http://localhost:3000/api/peliculas/mejor-calificadas HTTP/1.1
+###
+# @name crearPelicula
+POST http://localhost:3000/api/peliculas/create HTTP/1.1
+Content-Type: application/json
+
+{
+  "titulo": "Película de prueba",
+  "titulo_original": "Test Movie",
+  "tipo": "pelicula",
+  "anio": 2024,
+  "generos": ["Drama", "Ciencia ficción"],
+  "sinopsis": "Registro de prueba para verificar la creación y desactivación de películas.",
+  "activa": true
+}
+###
+DELETE http://localhost:3000/api/peliculas/{{crearPelicula.response.body.$._id}} HTTP/1.1
